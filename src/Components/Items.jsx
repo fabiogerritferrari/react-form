@@ -4,6 +4,7 @@ import { useState } from "react"
 export default function Items() {
 
     const [newItem, setNewItem] = useState('');
+
     const [items, setItems] = useState([
         'Pozione',
         'Spada lunga',
@@ -12,8 +13,8 @@ export default function Items() {
 
     const addItem = e => {
         e.preventDefault();
-        setItems(...items, newItem);
-        setNewItem('')
+        setItems([...items, newItem]);
+        setNewItem('');
     }
 
     const deleteItem = (i) => {
@@ -34,6 +35,7 @@ export default function Items() {
             </ul>
             <form onSubmit={addItem} className="mt-4">
                 <input type="text"
+                    value={newItem}
                     onChange={e => { setNewItem(e.target.value) }}
                 />
                 <button type="submit" className="btn btn-primary btn-sm mx-2">Aggiungi Item</button>
