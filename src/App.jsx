@@ -1,4 +1,4 @@
-import Items from './Components/Items'
+import Main from './Components/Main'
 
 function App() {
 
@@ -8,9 +8,7 @@ function App() {
       <header className='container text-center'>
         <h1>Items</h1>
       </header>
-      <main>
-        <Items />
-      </main>
+      <Main />
     </>
   )
 }
