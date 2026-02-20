@@ -16,17 +16,23 @@ export default function Items() {
         setNewItem('')
     }
 
+    const deleteItem = (i) => {
+        const NewItems = items.filter((item, index) => i !== index)
+        setItems(NewItems)
+    }
+
     return (
         <div className="container">
-            <ul className="row">
-                {items.map((item, i) => (
-                    <li key={i} className="col-12">
+            <ul className="list-group">
+                {items.map((item, index) => (
+                    <li className="list-group-item d-flex justify-content-between align-items-center"
+                        key={index}>
                         {item}
+                        <button className='btn btn-danger' onClick={() => { deleteItem(index) }}>X</button>
                     </li>
-                )
-                )}
+                ))}
             </ul>
-            <form onSubmit={addItem}>
+            <form onSubmit={addItem} className="mt-4">
                 <input type="text"
                     onChange={e => { setNewItem(e.target.value) }}
                 />
